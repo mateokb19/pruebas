@@ -7,6 +7,7 @@ public class NewInput : MonoBehaviour
     // Se declaran las variables
     private PlayerInput playerInput;
     private PlayerJump _playerJump;
+    private CatTransform _catTransform;
     [HideInInspector] public float inputX;
 
     // Al inicio de juego
@@ -15,18 +16,19 @@ public class NewInput : MonoBehaviour
         // Se almacena en la variable el componente acorde de Unity
         playerInput = GetComponent<PlayerInput>();
         _playerJump = GetComponent<PlayerJump>();
+        _catTransform = GetComponent<CatTransform>();
     }
 
     // Cada frame
     private void Update()
     {
-        // Se llama al método para que funcione
+        // Se llama al mï¿½todo para que funcione
         GetInput();
     }
 
     public void Button(InputAction.CallbackContext context)
     {
-        // Tres momentos: cuando se presiona, cuando se está presionando y cuando se deja de presionar
+        // Tres momentos: cuando se presiona, cuando se estï¿½ presionando y cuando se deja de presionar
         if (context.started)
         {
             // Forma de escribir en consola
@@ -36,12 +38,18 @@ public class NewInput : MonoBehaviour
     }
 
   
+    public void CatTransformAction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            _catTransform?.ToggleTransform();
+    }
+
     public void GetInput()
     {
         // Almacena en la variable el varlor del axis del archvio de PlayerActions
         inputX = playerInput.actions["Move"].ReadValue<float>();
 
-        // Forma con concatenación
+        // Forma con concatenaciï¿½n
        // Debug.Log("Movimiento: " + inputX);
 
         // Forma con formato

@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     private NewInput _newInput;
     private Rigidbody2D _rb;
+    private SpriteRenderer _spriteRenderer;
     public float speed;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,7 @@ public class PlayerMove : MonoBehaviour
         PlayerStats.score = 0;
         _newInput = GetComponent<NewInput>();
         _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,12 +32,8 @@ public class PlayerMove : MonoBehaviour
     public void Flip()
     {
         if(_newInput.inputX > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+            _spriteRenderer.flipX = false;
         else if(_newInput.inputX < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
+            _spriteRenderer.flipX = true;
     }
 }

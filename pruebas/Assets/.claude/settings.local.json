@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv SampleScene.unity LevelOne.unity)",
+      "Bash(mv SampleScene.unity.meta LevelOne.unity.meta)",
+      "Bash(python3:*)",
+      "Bash(python:*)"
+    ]
+  }
+}
