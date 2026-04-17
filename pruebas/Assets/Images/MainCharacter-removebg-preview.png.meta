@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c8f0e7e1d76fe1c409039ade1ac6c99c
+guid: 2747da8956cda3f4eb79763f1b86c56e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -65,7 +65,7 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -123,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat-2-Idle_0
+      name: MainCharacter-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 18
-        width: 19
-        height: 14
+        x: 2
+        y: 314
+        width: 191
+        height: 135
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7244d3bfb3d51284bb9f63256a16d10e
-      internalID: 29325209
+      spriteID: 72733666dcff75c4088f776841497adf
+      internalID: -1317733198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_1
+      name: MainCharacter-removebg-preview_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 18
-        width: 20
-        height: 13
+        x: 9
+        y: 466
+        width: 98
+        height: 122
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a62953695e62cf45b439bb1de801213
-      internalID: -352063176
+      spriteID: a048133ee05d72f488aa4e7b0b3dc31a
+      internalID: 377605428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_2
+      name: MainCharacter-removebg-preview_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 18
-        width: 21
-        height: 13
+        x: 148
+        y: 465
+        width: 111
+        height: 150
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c66dd0a490cc547afa130448165afe
-      internalID: 1177631573
+      spriteID: d6ea5fbeb53daad42bdfe210d2089269
+      internalID: -648775275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_3
+      name: MainCharacter-removebg-preview_3
       rect:
         serializedVersion: 2
-        x: 165
-        y: 18
-        width: 20
-        height: 13
+        x: 192
+        y: 312
+        width: 99
+        height: 111
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,41 +187,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebff3676b6c7e9140aa7ee0313ba6c15
-      internalID: 2063199748
+      spriteID: 4ad7be5c46636b74fa3bb81e36cb7428
+      internalID: 530756016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_4
+      name: MainCharacter-removebg-preview_4
       rect:
         serializedVersion: 2
-        x: 216
-        y: 18
-        width: 19
-        height: 13
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 303
+        y: 359
+        width: 84
+        height: 44
+      alignment: 9
+      pivot: {x: 0.7025179, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b43dbf8cee60c294e9d8eddc9606cbc3
-      internalID: -624807298
+      spriteID: 03adb1c1b2405ad40a52231eae43f271
+      internalID: 835386585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_5
+      name: MainCharacter-removebg-preview_5
       rect:
         serializedVersion: 2
-        x: 266
-        y: 18
-        width: 19
-        height: 13
+        x: 12
+        y: 157
+        width: 77
+        height: 116
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ddb10dee1c5ea4aa0916df3bdd437f
-      internalID: -722502699
+      spriteID: e7814f4b8e8158b41ba1e2d6a293e199
+      internalID: -1523396751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_6
+      name: MainCharacter-removebg-preview_6
       rect:
         serializedVersion: 2
-        x: 316
-        y: 18
-        width: 19
-        height: 13
+        x: 116
+        y: 157
+        width: 78
+        height: 116
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +250,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8a1e9785b57c84409320a5998c01d5d
-      internalID: -731346573
+      spriteID: 4c583771342e51a45aa1b77c7e2ef166
+      internalID: 723246961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_7
+      name: MainCharacter-removebg-preview_7
       rect:
         serializedVersion: 2
-        x: 365
-        y: 18
-        width: 20
-        height: 14
+        x: 218
+        y: 156
+        width: 80
+        height: 117
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +271,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b4af438c19f8e428c96597bc71002a
-      internalID: 1100012389
+      spriteID: c203236397a82554f99bafb02305df77
+      internalID: 1174383924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_8
+      name: MainCharacter-removebg-preview_8
       rect:
         serializedVersion: 2
-        x: 416
-        y: 18
-        width: 19
-        height: 14
+        x: 324
+        y: 157
+        width: 69
+        height: 116
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +292,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0449365d952c7e84a9e10249af5f8762
-      internalID: -858968663
+      spriteID: 6f057e0c21c2fae44807e15620840bd8
+      internalID: -1702355814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-2-Idle_9
+      name: MainCharacter-removebg-preview_9
       rect:
         serializedVersion: 2
-        x: 467
-        y: 18
-        width: 18
-        height: 14
+        x: 12
+        y: 16
+        width: 79
+        height: 116
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +313,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0978c03e26e7f6644baf52d7519e6945
-      internalID: -2096875981
+      spriteID: 7a464c4c784fc734b8f1b78ed1dfd6d9
+      internalID: -1766365050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 16
+        width: 75
+        height: 116
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85137ca53dfa9de458ae52866b6d323e
+      internalID: -71925228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 17
+        width: 76
+        height: 115
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd7955a9c2cac7429a0cf685a23c9f8
+      internalID: 1654697070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 18
+        width: 68
+        height: 117
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d3eaf79dbadd44fa8601462fd98e55
+      internalID: 488723260
       vertices: []
       indices: 
       edges: []
@@ -343,16 +393,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-2-Idle_0: 29325209
-      Cat-2-Idle_1: -352063176
-      Cat-2-Idle_2: 1177631573
-      Cat-2-Idle_3: 2063199748
-      Cat-2-Idle_4: -624807298
-      Cat-2-Idle_5: -722502699
-      Cat-2-Idle_6: -731346573
-      Cat-2-Idle_7: 1100012389
-      Cat-2-Idle_8: -858968663
-      Cat-2-Idle_9: -2096875981
+      MainCharacter-removebg-preview_0: -1317733198
+      MainCharacter-removebg-preview_1: 377605428
+      MainCharacter-removebg-preview_10: -71925228
+      MainCharacter-removebg-preview_11: 1654697070
+      MainCharacter-removebg-preview_12: 488723260
+      MainCharacter-removebg-preview_2: -648775275
+      MainCharacter-removebg-preview_3: 530756016
+      MainCharacter-removebg-preview_4: 835386585
+      MainCharacter-removebg-preview_5: -1523396751
+      MainCharacter-removebg-preview_6: 723246961
+      MainCharacter-removebg-preview_7: 1174383924
+      MainCharacter-removebg-preview_8: -1702355814
+      MainCharacter-removebg-preview_9: -1766365050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
