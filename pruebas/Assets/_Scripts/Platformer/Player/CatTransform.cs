@@ -5,27 +5,38 @@ public class CatTransform : MonoBehaviour
     [Header("Cat Form Settings")]
     public float catScaleMultiplier = 0.5f;
 
-    [Header("Collider Settings")]
-    public Vector2 humanColliderSize = new Vector2(1f, 2f);
-    public Vector2 catColliderSize = new Vector2(1f, 1f);
-    public Vector2 humanColliderOffset = new Vector2(0f, 0f);
-    public Vector2 catColliderOffset = new Vector2(0f, -0.5f);
+    [Header("Collider Settings (Cat)")]
+    public Vector2 catColliderSize = new Vector2(0.5f, 0.5f);
+    public Vector2 catColliderOffset = new Vector2(0f, 0.3f);
 
     private Vector3 _normalScale;
     private bool _isCat = false;
     private Animator _animator;
-    private CapsuleCollider2D _collider;
+    private BoxCollider2D _collider;
+
+    // Valores originales del collider humano
+    private Vector2 _originalColliderSize;
+    private Vector2 _originalColliderOffset;
 
     void Start()
     {
         _normalScale = transform.localScale;
         _animator = GetComponent<Animator>();
-        _collider = GetComponent<CapsuleCollider2D>();
+        _collider = GetComponent<BoxCollider2D>();
+
+        // Guardar los valores originales del collider
+        if (_collider != null)
+        {
+            _originalColliderSize = _collider.size;
+            _originalColliderOffset = _collider.offset;
+            Debug.Log("Valores originales guardados - Size: " + _originalColliderSize + " | Offset: " + _originalColliderOffset);
+        }
     }
 
     public void ToggleTransform()
     {
         _isCat = !_isCat;
+        Debug.Log("Transform activado. IsCat: " + _isCat);
 
         if (_isCat)
         {
@@ -34,6 +45,7 @@ public class CatTransform : MonoBehaviour
             {
                 _collider.size = catColliderSize;
                 _collider.offset = catColliderOffset;
+                Debug.Log("Gato - Size: " + catColliderSize + " | Offset: " + catColliderOffset);
             }
         }
         else
@@ -41,8 +53,9 @@ public class CatTransform : MonoBehaviour
             transform.localScale = _normalScale;
             if (_collider != null)
             {
-                _collider.size = humanColliderSize;
-                _collider.offset = humanColliderOffset;
+                _collider.size = _originalColliderSize;
+                _collider.offset = _originalColliderOffset;
+                Debug.Log("Humano - Size: " + _originalColliderSize + " | Offset: " + _originalColliderOffset);
             }
         }
 
