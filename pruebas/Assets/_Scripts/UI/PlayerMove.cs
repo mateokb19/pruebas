@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Movement()
     {
+        Debug.Log("Movement ejecutado. InputX: " + _newInput.inputX + " | Speed: " + speed + " | RB: " + (_rb != null));
         //transform.Translate(Vector3.right * _newInput.inputX * speed * Time.deltaTime);
         _rb.velocity= new Vector2(_newInput.inputX * speed, _rb.velocity.y);
         Flip();

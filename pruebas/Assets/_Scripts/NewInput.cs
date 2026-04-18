@@ -48,11 +48,6 @@ public class NewInput : MonoBehaviour
     {
         // Almacena en la variable el varlor del axis del archvio de PlayerActions
         inputX = playerInput.actions["Move"].ReadValue<float>();
-
-        // Forma con concatenaci�n
-       // Debug.Log("Movimiento: " + inputX);
-
-        // Forma con formato
-       // Debug.Log(string.Format("Movimiento: {0}", inputX));
+        Debug.Log("InputX: " + inputX);
     }
 }
