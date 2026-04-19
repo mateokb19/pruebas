@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PlantaVeneno_0
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 342
+        width: 209
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651276d73f12d464e860bcc809a63287
+      internalID: 2061541131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_1
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 342
+        width: 284
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d65f2122e0fd745a214d0b1c8fb1a4
+      internalID: 1670336855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_3
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 341
+        width: 224
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7054b5f9a6f88ce4b9c4e54e1c4c7ac3
+      internalID: -1109679505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 342
+        width: 192
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a075717c4162c94294e1cf148cf63ed
+      internalID: -348029669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_9
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 481
+        width: 137
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51eac236fb1d9c45becbf79394b5c4b
+      internalID: 170731507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_16
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 44
+        width: 204
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31bddffad38d43841a2b08995954a5ef
+      internalID: 852654098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_20
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 44
+        width: 202
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cd138aa2f696f4cb2bb9d82fda9867
+      internalID: -926996632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_21
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 44
+        width: 201
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1beeffc782a7fb4298159f421ab1914
+      internalID: -1059221941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlantaVeneno_22
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 44
+        width: 202
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007e7c18d9bac8241ba7b09c18e37d58
+      internalID: -215702103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +308,42 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PlantaVeneno_0: 2061541131
+      PlantaVeneno_1: 1670336855
+      PlantaVeneno_10: -566015613
+      PlantaVeneno_11: -1319794465
+      PlantaVeneno_12: -540426876
+      PlantaVeneno_13: 874375516
+      PlantaVeneno_14: -671762864
+      PlantaVeneno_15: 1271516891
+      PlantaVeneno_16: 852654098
+      PlantaVeneno_17: -1331634319
+      PlantaVeneno_18: -808494171
+      PlantaVeneno_19: -356771083
+      PlantaVeneno_2: -596695117
+      PlantaVeneno_20: -926996632
+      PlantaVeneno_21: -1059221941
+      PlantaVeneno_22: -215702103
+      PlantaVeneno_23: -249544181
+      PlantaVeneno_24: -1277992824
+      PlantaVeneno_25: 458238265
+      PlantaVeneno_26: -896777642
+      PlantaVeneno_27: -2003499611
+      PlantaVeneno_28: 1043766205
+      PlantaVeneno_29: -645197902
+      PlantaVeneno_3: -1109679505
+      PlantaVeneno_30: -1173085410
+      PlantaVeneno_31: -898098968
+      PlantaVeneno_32: -532656650
+      PlantaVeneno_33: 1687327718
+      PlantaVeneno_34: -1793474483
+      PlantaVeneno_4: -348029669
+      PlantaVeneno_5: -928149767
+      PlantaVeneno_6: 1978033970
+      PlantaVeneno_7: -499301038
+      PlantaVeneno_8: -2080213852
+      PlantaVeneno_9: 170731507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

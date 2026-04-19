@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5732610279058327859}
   - component: {fileID: -3089267730198731116}
   - component: {fileID: 8858452509127502746}
+  - component: {fileID: 3610431649769889502}
   m_Layer: 0
   m_Name: Diamante
   m_TagString: Untagged
@@ -84,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerAmount: 20
+  healthAmount: 5
 --- !u!95 &8858452509127502746
 Animator:
   serializedVersion: 5
@@ -105,6 +107,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3610431649769889502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402794655951571871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09eb192862a8ac47bc83ead81801b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: 9c68064a3d9e30b468566d4bb54d4a43, type: 3}
 --- !u!1 &2157556048197680724
 GameObject:
   m_ObjectHideFlags: 0

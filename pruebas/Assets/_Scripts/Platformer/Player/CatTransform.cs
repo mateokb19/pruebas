@@ -13,6 +13,7 @@ public class CatTransform : MonoBehaviour
     private bool _isCat = false;
     private Animator _animator;
     private BoxCollider2D _collider;
+    private TransformSound _transformSound;
 
     // Valores originales del collider humano
     private Vector2 _originalColliderSize;
@@ -23,6 +24,7 @@ public class CatTransform : MonoBehaviour
         _normalScale = transform.localScale;
         _animator = GetComponent<Animator>();
         _collider = GetComponent<BoxCollider2D>();
+        _transformSound = GetComponent<TransformSound>();
 
         // Guardar los valores originales del collider
         if (_collider != null)
@@ -37,6 +39,7 @@ public class CatTransform : MonoBehaviour
     {
         _isCat = !_isCat;
         Debug.Log("Transform activado. IsCat: " + _isCat);
+        _transformSound?.PlayTransformSound();
 
         if (_isCat)
         {

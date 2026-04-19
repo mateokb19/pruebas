@@ -15,6 +15,9 @@ public class DiamondPickup : MonoBehaviour
             // Añade vida
             PlayerStats.health = Mathf.Min(PlayerStats.health + healthAmount, PlayerStats.maxHealth);
 
+            // Reproduce el sonido de recogida
+            GetComponent<DiamondPickupSound>()?.PlayPickupSound();
+
             Debug.Log("¡Cristal recogido! Power: +" + powerAmount + " | Health: +" + healthAmount);
             Destroy(gameObject);
         }
