@@ -15,29 +15,25 @@ public class OptionsMenu : MonoBehaviour
     public Button bindMoveLeftBtn;
     public Button bindMoveRightBtn;
     public Button bindJumpBtn;
-    public Button bindShootBtn;
     public Button bindTransformBtn;
 
     [Header("Key Binding Labels")]
     public TextMeshProUGUI moveLeftLabel;
     public TextMeshProUGUI moveRightLabel;
     public TextMeshProUGUI jumpLabel;
-    public TextMeshProUGUI shootLabel;
     public TextMeshProUGUI transformLabel;
 
     private InputActionRebindingExtensions.RebindingOperation currentRebind;
 
-    const string BindSaveKey  = "InputBindings";
-    const string VolumeSaveKey = "MasterVolume";
+    const string BindSaveKey = "InputBindings";
 
     void OnEnable()
     {
         LoadBindings();
         RefreshLabels();
 
-        float saved = PlayerPrefs.GetFloat(VolumeSaveKey, 1f);
-        AudioListener.volume = saved;
-        if (volumeSlider != null) volumeSlider.value = saved;
+        if (volumeSlider != null && AudioManager.instance != null)
+            volumeSlider.value = AudioManager.instance.GetMasterVolume();
     }
 
     void OnDisable() => currentRebind?.Cancel();
@@ -46,8 +42,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void OnVolumeChanged(float value)
     {
-        AudioListener.volume = value;
-        PlayerPrefs.SetFloat(VolumeSaveKey, value);
+        if (AudioManager.instance != null)
+            AudioManager.instance.SetMasterVolume(value);
     }
 
     // ── Rebind entrypoints ───────────────────────────────────────────────────
@@ -55,7 +51,6 @@ public class OptionsMenu : MonoBehaviour
     public void RebindMoveLeft()  => StartRebind("Move", 1, moveLeftLabel);
     public void RebindMoveRight() => StartRebind("Move", 2, moveRightLabel);
     public void RebindJump()      => StartRebind("Jump", 0, jumpLabel);
-    public void RebindShoot()     => StartRebind("Shoot", 0, shootLabel);
     public void RebindTransform() => StartRebind("CatTransform", 0, transformLabel);
 
     // ── Core rebind logic ────────────────────────────────────────────────────
@@ -101,7 +96,6 @@ public class OptionsMenu : MonoBehaviour
         moveLeftLabel?.SetText(GetBindingDisplay("Move", 1));
         moveRightLabel?.SetText(GetBindingDisplay("Move", 2));
         jumpLabel?.SetText(GetBindingDisplay("Jump", 0));
-        shootLabel?.SetText(GetBindingDisplay("Shoot", 0));
         transformLabel?.SetText(GetBindingDisplay("CatTransform", 0));
     }
 
@@ -130,7 +124,6 @@ public class OptionsMenu : MonoBehaviour
         if (bindMoveLeftBtn)  bindMoveLeftBtn.interactable  = value;
         if (bindMoveRightBtn) bindMoveRightBtn.interactable = value;
         if (bindJumpBtn)      bindJumpBtn.interactable      = value;
-        if (bindShootBtn)     bindShootBtn.interactable     = value;
         if (bindTransformBtn) bindTransformBtn.interactable = value;
     }
 
