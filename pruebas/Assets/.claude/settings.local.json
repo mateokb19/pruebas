@@ -4,7 +4,12 @@
       "Bash(mv SampleScene.unity LevelOne.unity)",
       "Bash(mv SampleScene.unity.meta LevelOne.unity.meta)",
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git checkout *)",
+      "Bash(git rebase *)",
+      "Bash(GIT_EDITOR=true git rebase --continue)"
     ]
   }
 }
