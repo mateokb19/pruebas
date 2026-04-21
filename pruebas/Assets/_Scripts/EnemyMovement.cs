@@ -1,75 +1,137 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    // Variables iniciales par cuadrar los l[imites de movimiento de los enemigos.
-    [SerializeField] GameObject pointA;
-    [SerializeField] GameObject pointB;
+    [SerializeField] private GameObject pointA;
+    [SerializeField] private GameObject pointB;
+    [SerializeField] private float autoPatrolRange = 3f;
 
-    // Variable que guarde el punto actual de movimiento.
-    private Transform currentPoint;
+    public float speed = 2f;
+    public float chaseSpeed = 3f;
+    public float chaseRange = 4f;
+    public float maxHealth = 3f;
 
-    // Variable que almacena el Rigidbody del enemigo.
+    [System.NonSerialized] public bool canMove = true;
+
+    private float health;
     private Rigidbody2D rb;
+    private Animator animator;
+    private Transform player;
+    private CatTransform _playerCat;
 
-    // Variable que almacena la velocidad de movimiento.
-    public float speed;
+    private Transform patrolA;
+    private Transform patrolB;
+    private Transform currentTarget;
 
-    [HideInInspector] public bool canMove;
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        currentPoint = pointB.transform;
-        canMove = true;
+        animator = GetComponent<Animator>();
+        health = maxHealth;
+
+        if (chaseSpeed <= 0f) chaseSpeed = speed;
+        if (chaseRange <= 0f) chaseRange = 4f;
+
+        SetupPatrolPoints();
     }
 
-    // Update is called once per frame
+    private void SetupPatrolPoints()
+    {
+        if (pointA != null && pointB != null)
+        {
+            patrolA = pointA.transform;
+            patrolB = pointB.transform;
+        }
+        else
+        {
+            // Genera dos puntos automáticos a ambos lados de la posición inicial
+            GameObject autoA = new GameObject("PatrolA_auto");
+            GameObject autoB = new GameObject("PatrolB_auto");
+            autoA.transform.position = transform.position + Vector3.left * autoPatrolRange;
+            autoB.transform.position = transform.position + Vector3.right * autoPatrolRange;
+            patrolA = autoA.transform;
+            patrolB = autoB.transform;
+        }
+
+        currentTarget = patrolB;
+    }
+
     void FixedUpdate()
     {
-        if (canMove)
+        if (!canMove)
         {
-            // Se llaman los métodos para el movimiento.
-            Movement();
-            FlipMovement();
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+            SetWalking(false);
+            return;
         }
+
+        if (player == null)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("Player");
+            if (obj != null)
+            {
+                player = obj.transform;
+                _playerCat = obj.GetComponent<CatTransform>();
+            }
+        }
+
+        bool playerVisible = player != null &&
+                             (_playerCat == null || !_playerCat.IsCat) &&
+                             Mathf.Abs(player.position.x - transform.position.x) <= chaseRange;
+
+        if (playerVisible)
+            Chase();
         else
-        {
-            speed = 0;
-        }
+            Patrol();
     }
 
-    private void Movement()
+    public void TakeDamage(float amount)
     {
-        // Valida si el enemigo se acerca a uno de los puntos para que cambie el punto objetivo.
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
-        {
-            currentPoint = pointA.transform;
-        }
-
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointA.transform)
-        {
-            currentPoint = pointB.transform;
-        }
+        health -= amount;
+        if (health <= 0f)
+            Destroy(gameObject);
     }
 
-    void FlipMovement()
+    private void Chase()
     {
-        // Modifica la velcidad y la rotación del enemigo si llega a uno de los puntos para que se dirija al otro.
-        if (currentPoint == pointB.transform)
-        {
-            rb.velocity = new Vector2(speed, 0);
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            rb.velocity = new Vector2(-speed, 0);
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+        float dir = player.position.x - transform.position.x;
+        rb.velocity = new Vector2(Mathf.Sign(dir) * chaseSpeed, rb.velocity.y);
+        FaceDirection(dir);
+        SetWalking(true);
     }
 
+    private void Patrol()
+    {
+        if (Mathf.Abs(transform.position.x - currentTarget.position.x) < 0.2f)
+            currentTarget = currentTarget == patrolB ? patrolA : patrolB;
+
+        float dir = currentTarget.position.x - transform.position.x;
+        rb.velocity = new Vector2(Mathf.Sign(dir) * speed, rb.velocity.y);
+        FaceDirection(dir);
+        SetWalking(true);
+    }
+
+    private void FaceDirection(float dir)
+    {
+        transform.eulerAngles = dir >= 0 ? Vector3.zero : new Vector3(0, 180, 0);
+    }
+
+    private void SetWalking(bool walking)
+    {
+        if (animator != null)
+            animator.SetBool("IsWalking", walking);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+
+        if (pointA == null || pointB == null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position + Vector3.left * autoPatrolRange,
+                            transform.position + Vector3.right * autoPatrolRange);
+        }
+    }
 }
-

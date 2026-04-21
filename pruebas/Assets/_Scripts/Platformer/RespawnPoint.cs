@@ -24,9 +24,7 @@ public class RespawnPoint : MonoBehaviour
             Debug.Log("¡Es el Player!");
 
             // Resta vida
-            PlayerStats.health -= damageAmount;
-            if (PlayerStats.health < 0)
-                PlayerStats.health = 0;
+            HealthManaUI.TakeDamage(damageAmount);
             Debug.Log("¡Daño restado! Nuevo health: " + PlayerStats.health);
 
             // Si la vida llega a 0, game over

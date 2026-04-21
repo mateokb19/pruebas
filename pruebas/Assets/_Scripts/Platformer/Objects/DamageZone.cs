@@ -8,7 +8,7 @@ public class DamageZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerStats.health = Mathf.Max(PlayerStats.health - damage, 0f);
+            HealthManaUI.TakeDamage(damage);
             Debug.Log($"[DamageZone] Jugador tocó zona de daño. Daño: {damage} | Vida restante: {PlayerStats.health}");
         }
     }

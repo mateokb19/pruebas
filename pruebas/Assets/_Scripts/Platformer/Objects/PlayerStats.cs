@@ -6,7 +6,8 @@ public class PlayerStats
     public static float health = 100f;
     public static float maxHealth = 100f;
     public static float power = 0f;
-    public static float maxPower = 100f;
+    public static float maxPower = 10f;
+    public static float lastDamageTime = float.MinValue;
 
     // Guardar progreso
     public static void SaveProgress()
@@ -35,7 +36,7 @@ public class PlayerStats
     {
         score = 0;
         health = maxHealth;
-        power = maxPower;
+        power = 0f;
         PlayerPrefs.DeleteAll();
         Debug.Log("Progreso reseteado");
     }

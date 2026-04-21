@@ -33,7 +33,7 @@ public class PlantBullet : MonoBehaviour
         // Si golpea al jugador, le hace daño
         if (collision.CompareTag("Player"))
         {
-            PlayerStats.health -= 10; // Le resta 10 de vida (ajusta según necesites)
+            HealthManaUI.TakeDamage(10f);
             Destroy(gameObject);
         }
     }

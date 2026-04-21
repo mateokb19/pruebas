@@ -37,7 +37,7 @@ public class HealthManaUI : MonoBehaviour
             powerBarFill.fillAmount = PlayerStats.power / PlayerStats.maxPower;
 
         if (powerText != null)
-            powerText.text = Mathf.Round(PlayerStats.power) + " / " + Mathf.Round(PlayerStats.maxPower);
+            powerText.text = (int)PlayerStats.power + " / " + (int)PlayerStats.maxPower;
     }
 
     // Llamar cuando el jugador recibe daño
@@ -46,6 +46,7 @@ public class HealthManaUI : MonoBehaviour
         PlayerStats.health -= damage;
         if (PlayerStats.health < 0)
             PlayerStats.health = 0;
+        PlayerStats.lastDamageTime = Time.time;
         PlayerStats.SaveProgress();
     }
 
