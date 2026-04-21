@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerAmount: 20
+  powerAmount: 10
   healthAmount: 5
 --- !u!95 &8858452509127502746
 Animator:
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupClip: {fileID: 8300000, guid: 9c68064a3d9e30b468566d4bb54d4a43, type: 3}
+  volume: 1
 --- !u!1 &2157556048197680724
 GameObject:
   m_ObjectHideFlags: 0

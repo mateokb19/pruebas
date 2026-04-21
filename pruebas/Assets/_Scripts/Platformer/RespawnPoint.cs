@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RespawnPoint : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class RespawnPoint : MonoBehaviour
             if (PlayerStats.health < 0)
                 PlayerStats.health = 0;
             Debug.Log("¡Daño restado! Nuevo health: " + PlayerStats.health);
+
+            // Si la vida llega a 0, game over
+            if (PlayerStats.health <= 0f)
+            {
+                Debug.Log("Jugador sin vida. Cargando Perdiste...");
+                SceneManager.LoadScene("Perdiste");
+                return;
+            }
 
             // Teleporta al player a la posición inicial
             collision.transform.position = respawnPosition;

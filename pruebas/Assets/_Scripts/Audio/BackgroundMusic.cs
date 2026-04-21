@@ -4,8 +4,11 @@ public class BackgroundMusic : MonoBehaviour
 {
     public static BackgroundMusic instance;
 
+    const string MusicSaveKey = "MusicVolume";
+
     [SerializeField] private AudioClip musicClip;
     private AudioSource musicAudio;
+    private float musicVolume = 1f;
 
     void Awake()
     {
@@ -30,11 +33,20 @@ public class BackgroundMusic : MonoBehaviour
 
     void Start()
     {
-        // Se registra en el AudioManager para que el volumen se controle desde el slider
-        AudioManager.instance.Register(musicAudio);
-        musicAudio.volume = AudioManager.instance.masterVolume;
+        musicVolume = PlayerPrefs.GetFloat(MusicSaveKey, 1f);
+        musicAudio.volume = musicVolume;
 
-        if (!musicAudio.isPlaying)
+        if (musicClip != null && !musicAudio.isPlaying)
             musicAudio.Play();
+    }
+
+    public float GetMusicVolume() => musicVolume;
+
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = Mathf.Clamp01(volume);
+        musicAudio.volume = musicVolume;
+        PlayerPrefs.SetFloat(MusicSaveKey, musicVolume);
+        PlayerPrefs.Save();
     }
 }

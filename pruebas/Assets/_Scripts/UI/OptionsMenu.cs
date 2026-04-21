@@ -9,7 +9,8 @@ public class OptionsMenu : MonoBehaviour
     public InputActionAsset inputActions;
 
     [Header("Volume")]
-    public Slider volumeSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     [Header("Key Binding Buttons")]
     public Button bindMoveLeftBtn;
@@ -32,18 +33,27 @@ public class OptionsMenu : MonoBehaviour
         LoadBindings();
         RefreshLabels();
 
-        if (volumeSlider != null && AudioManager.instance != null)
-            volumeSlider.value = AudioManager.instance.GetMasterVolume();
+        if (musicSlider != null && BackgroundMusic.instance != null)
+            musicSlider.value = BackgroundMusic.instance.GetMusicVolume();
+
+        if (sfxSlider != null && AudioManager.instance != null)
+            sfxSlider.value = AudioManager.instance.GetSFXVolume();
     }
 
     void OnDisable() => currentRebind?.Cancel();
 
     // ── Volume ───────────────────────────────────────────────────────────────
 
-    public void OnVolumeChanged(float value)
+    public void OnMusicVolumeChanged(float value)
+    {
+        if (BackgroundMusic.instance != null)
+            BackgroundMusic.instance.SetMusicVolume(value);
+    }
+
+    public void OnSFXVolumeChanged(float value)
     {
         if (AudioManager.instance != null)
-            AudioManager.instance.SetMasterVolume(value);
+            AudioManager.instance.SetSFXVolume(value);
     }
 
     // ── Rebind entrypoints ───────────────────────────────────────────────────
@@ -103,13 +113,18 @@ public class OptionsMenu : MonoBehaviour
     {
         var action = inputActions?.FindAction(actionName);
         if (action == null || bindingIndex >= action.bindings.Count) return "?";
+        var path = action.bindings[bindingIndex].effectivePath;
+        if (string.IsNullOrEmpty(path)) return "?";
         return InputControlPath.ToHumanReadableString(
-            action.bindings[bindingIndex].effectivePath,
+            path,
             InputControlPath.HumanReadableStringOptions.OmitDevice);
     }
 
-    void SaveBindings() =>
+    void SaveBindings()
+    {
         PlayerPrefs.SetString(BindSaveKey, inputActions.SaveBindingOverridesAsJson());
+        PlayerPrefs.Save();
+    }
 
     void LoadBindings()
     {

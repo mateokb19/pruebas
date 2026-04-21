@@ -3,12 +3,13 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-    private Slider volumeSlider;
+    private Slider slider;
 
     void Start()
     {
-        volumeSlider = GetComponent<Slider>();
-        volumeSlider.value = AudioManager.instance.masterVolume;
-        volumeSlider.onValueChanged.AddListener(AudioManager.instance.SetMasterVolume);
+        slider = GetComponent<Slider>();
+
+        if (slider != null && BackgroundMusic.instance != null)
+            slider.value = BackgroundMusic.instance.GetMusicVolume();
     }
 }

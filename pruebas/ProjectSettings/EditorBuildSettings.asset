@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: d8191b961e1d8ff4681a61e2663944fa
+  - enabled: 1
+    path: Assets/Scenes/Perdiste.unity
+    guid: a03c78603cf3dca4980bede42fbe61a3
+  - enabled: 1
+    path: Assets/Scenes/Ganaste.unity
+    guid: 25b8a9ffb61d55840a81e2ade886ea03
   m_configObjects: {}

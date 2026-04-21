@@ -9,7 +9,7 @@ public class DiamondPickupSound : MonoBehaviour
     {
         if (pickupClip != null)
         {
-            AudioSource.PlayClipAtPoint(pickupClip, transform.position, volume * AudioManager.instance.masterVolume);
+            AudioSource.PlayClipAtPoint(pickupClip, transform.position, volume * AudioManager.instance.sfxVolume);
         }
     }
 }

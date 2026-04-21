@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DiamondPickup : MonoBehaviour
 {
-    public float powerAmount = 20f;
-    public float healthAmount = 5f;
+    public float powerAmount = 10f;
+    public float healthAmount = 0f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -5,7 +5,9 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [Range(0f, 1f)] public float masterVolume = 1f;
+    const string SFXSaveKey = "SFXVolume";
+
+    [Range(0f, 1f)] public float sfxVolume = 1f;
 
     private List<AudioSource> registeredSources = new List<AudioSource>();
 
@@ -15,6 +17,7 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            sfxVolume = PlayerPrefs.GetFloat(SFXSaveKey, 1f);
         }
         else
         {
@@ -32,20 +35,24 @@ public class AudioManager : MonoBehaviour
     {
         if (audioSource != null)
         {
-            audioSource.volume = masterVolume;
+            audioSource.volume = sfxVolume;
             audioSource.Play();
         }
     }
 
-    public void SetMasterVolume(float volume)
-    {
-        masterVolume = Mathf.Clamp01(volume);
+    public float GetSFXVolume() => sfxVolume;
 
-        // Actualiza todos los AudioSources registrados en tiempo real
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat(SFXSaveKey, sfxVolume);
+        PlayerPrefs.Save();
+        registeredSources.RemoveAll(s => s == null);
+
         foreach (AudioSource source in registeredSources)
         {
             if (source != null)
-                source.volume = masterVolume;
+                source.volume = sfxVolume;
         }
     }
 }
