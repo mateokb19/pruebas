@@ -15,6 +15,8 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         PlayerStats.LoadProgress();
+        PlayerStats.health = PlayerStats.maxHealth;
+        PlayerStats.power = 0f;
 
         _displayedHealth = PlayerStats.health;
 
@@ -57,7 +59,6 @@ public class PlayerHUD : MonoBehaviour
             float ratio = PlayerStats.power / PlayerStats.maxPower;
             powerScrollbar.size = ratio;
             powerScrollbar.value = 0f;
-            Debug.Log("[PowerBar] power=" + PlayerStats.power + " max=" + PlayerStats.maxPower + " size=" + ratio);
         }
     }
 }
