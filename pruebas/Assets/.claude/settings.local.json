@@ -20,7 +20,12 @@
       "Bash(cat .git/rebase-merge/head-name)",
       "Bash(cat .git/rebase-merge/onto)",
       "Bash(ls .git/rebase-apply/)",
-      "Bash(ls .git/rebase-merge/)"
+      "Bash(ls .git/rebase-merge/)",
+      "Bash(find .git -name \"rebase-merge\" -type d)",
+      "Bash(find .git -name \"REBASE_HEAD\")",
+      "Bash(find .git -name \"MERGE_HEAD\" -o -name \"REBASE_HEAD\" -o -name \"CHERRY_PICK_HEAD\")",
+      "Bash(ls .git/rebase-merge)",
+      "Bash(ls .git/rebase-apply)"
     ]
   }
 }
