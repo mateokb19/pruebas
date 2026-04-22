@@ -18,9 +18,6 @@ public class PlayerHUD : MonoBehaviour
 
         _displayedHealth = PlayerStats.health;
 
-        if (powerScrollbar != null)
-            powerScrollbar.numberOfSteps = (int)PlayerStats.maxPower;
-
         UpdateHUD();
     }
 
@@ -50,9 +47,17 @@ public class PlayerHUD : MonoBehaviour
     private void UpdateHUD()
     {
         if (healthScrollbar != null)
-            healthScrollbar.value = _displayedHealth / PlayerStats.maxHealth;
+        {
+            healthScrollbar.size = _displayedHealth / PlayerStats.maxHealth;
+            healthScrollbar.value = 0f;
+        }
 
         if (powerScrollbar != null)
-            powerScrollbar.value = PlayerStats.power / PlayerStats.maxPower;
+        {
+            float ratio = PlayerStats.power / PlayerStats.maxPower;
+            powerScrollbar.size = ratio;
+            powerScrollbar.value = 0f;
+            Debug.Log("[PowerBar] power=" + PlayerStats.power + " max=" + PlayerStats.maxPower + " size=" + ratio);
+        }
     }
 }

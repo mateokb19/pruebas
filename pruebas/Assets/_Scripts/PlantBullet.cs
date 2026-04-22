@@ -6,6 +6,7 @@ public class PlantBullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed = 5f;
+    public float damage = 20f;
     private Vector2 shootDirection = Vector2.right;
 
     void Awake()
@@ -33,7 +34,7 @@ public class PlantBullet : MonoBehaviour
         // Si golpea al jugador, le hace daño
         if (collision.CompareTag("Player"))
         {
-            HealthManaUI.TakeDamage(10f);
+            HealthManaUI.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -32,6 +32,7 @@ public class LevelExit : MonoBehaviour
 
         if (remaining.Length == 0)
         {
+            PlayerStats.SaveProgress();
             if (isLastLevel)
                 SceneManager.LoadScene("Ganaste");
             else

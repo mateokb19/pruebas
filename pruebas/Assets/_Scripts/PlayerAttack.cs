@@ -23,7 +23,8 @@ public class PlayerAttack : MonoBehaviour
             if (_rb.velocity.y < 0)
             {
                 _rb.AddForce(transform.up * bounceForce, ForceMode2D.Impulse);
-                collision.GetComponent<EnemyMovement>().canMove = false;
+                EnemyMovement enemy = collision.GetComponent<EnemyMovement>();
+                if (enemy != null) enemy.canMove = false;
                 Destroy(collision.gameObject, 1);
             }
 

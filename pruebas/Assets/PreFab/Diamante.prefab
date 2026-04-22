@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerAmount: 10
+  powerAmount: 1
   healthAmount: 5
 --- !u!95 &8858452509127502746
 Animator:
