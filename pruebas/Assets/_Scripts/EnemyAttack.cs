@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private float detectionRange = 3f;
-    [SerializeField] private float attackRange = 1.2f;
+    [SerializeField] private float attackRange = 2f;
     [SerializeField] private float damage = 5f;
     [SerializeField] private float attackCooldown = 1.5f;
 
@@ -34,8 +34,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (player != null && cooldownTimer <= 0f)
         {
-            Vector2 punchOrigin = (Vector2)transform.position + (Vector2)transform.right * 0.5f;
-            float dist = Vector2.Distance(punchOrigin, player.transform.position);
+            float dist = Vector2.Distance(transform.position, player.transform.position);
 
             if (dist <= attackRange)
                 StartCoroutine(PerformAttack());
@@ -72,9 +71,8 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         Collider2D hit = DetectPlayer();
-        Vector2 punchOrigin = (Vector2)transform.position + (Vector2)transform.right * 0.5f;
 
-        if (hit != null && Vector2.Distance(punchOrigin, hit.transform.position) <= attackRange)
+        if (hit != null && Vector2.Distance(transform.position, hit.transform.position) <= attackRange)
         {
             HealthManaUI.TakeDamage(damage);
             Debug.Log($"[EnemyAttack] Puñetazo! -{damage} | Vida: {PlayerStats.health}");
@@ -93,7 +91,6 @@ public class EnemyAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
         Gizmos.color = Color.red;
-        Vector2 punchOrigin = (Vector2)transform.position + (Vector2)transform.right * 0.5f;
-        Gizmos.DrawWireSphere(punchOrigin, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

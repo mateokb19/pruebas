@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerStats.ResetProgress();
         PlayerPrefs.SetInt("HasSave", 1);
         StartCoroutine(LoadWithWelcome());
     }
