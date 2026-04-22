@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private float detectionRange = 3f;
-    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackDistance = 2f;
     [SerializeField] private float damage = 5f;
     [SerializeField] private float attackCooldown = 1.5f;
 
@@ -36,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
         {
             float dist = Vector2.Distance(transform.position, player.transform.position);
 
-            if (dist <= attackRange)
+            if (dist <= attackDistance)
                 StartCoroutine(PerformAttack());
         }
     }
@@ -72,7 +72,7 @@ public class EnemyAttack : MonoBehaviour
 
         Collider2D hit = DetectPlayer();
 
-        if (hit != null && Vector2.Distance(transform.position, hit.transform.position) <= attackRange)
+        if (hit != null && Vector2.Distance(transform.position, hit.transform.position) <= attackDistance)
         {
             HealthManaUI.TakeDamage(damage);
             Debug.Log($"[EnemyAttack] Puñetazo! -{damage} | Vida: {PlayerStats.health}");
@@ -91,6 +91,6 @@ public class EnemyAttack : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackDistance);
     }
 }

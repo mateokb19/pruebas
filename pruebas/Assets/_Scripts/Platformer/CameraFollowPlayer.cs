@@ -7,6 +7,15 @@ public class CameraFollowPlayer : MonoBehaviour
     public float smoothSpeed = 0.3f;
     public Vector3 offset = new Vector3(0, 0, -10);
 
+    private void Start()
+    {
+        if (playerTransform == null)
+        {
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) playerTransform = p.transform;
+        }
+    }
+
     private void LateUpdate()
     {
         if (playerTransform == null) return;
