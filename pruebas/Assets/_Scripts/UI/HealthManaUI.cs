@@ -46,7 +46,7 @@ public class HealthManaUI : MonoBehaviour
         PlayerStats.health -= damage;
         if (PlayerStats.health < 0)
             PlayerStats.health = 0;
-        PlayerStats.lastDamageTime = Time.time;
+
         PlayerStats.SaveProgress();
     }
 

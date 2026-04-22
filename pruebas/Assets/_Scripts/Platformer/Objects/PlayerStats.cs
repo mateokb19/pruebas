@@ -7,7 +7,6 @@ public class PlayerStats
     public static float maxHealth = 100f;
     public static float power = 0f;
     public static float maxPower = 10f;
-    public static float lastDamageTime = float.MinValue;
 
     // Guardar progreso
     public static void SaveProgress()

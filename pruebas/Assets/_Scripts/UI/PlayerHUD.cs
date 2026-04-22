@@ -6,8 +6,6 @@ public class PlayerHUD : MonoBehaviour
     public Scrollbar healthScrollbar;
     public Scrollbar powerScrollbar;
 
-    [SerializeField] private float regenDelay = 3f;
-    [SerializeField] private float regenRate = 10f;
     [SerializeField] private float barLerpSpeed = 4f;
 
     private float _displayedHealth;
@@ -15,8 +13,6 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         PlayerStats.LoadProgress();
-        PlayerStats.health = PlayerStats.maxHealth;
-        PlayerStats.power = 0f;
 
         _displayedHealth = PlayerStats.health;
 
@@ -25,25 +21,9 @@ public class PlayerHUD : MonoBehaviour
 
     void Update()
     {
-        RegenerateHealth();
-
         _displayedHealth = Mathf.Lerp(_displayedHealth, PlayerStats.health, barLerpSpeed * Time.deltaTime);
 
         UpdateHUD();
-    }
-
-    private void RegenerateHealth()
-    {
-        if (PlayerStats.health >= PlayerStats.maxHealth) return;
-        if (Time.time - PlayerStats.lastDamageTime < regenDelay) return;
-
-        PlayerStats.health = Mathf.Min(
-            PlayerStats.health + regenRate * Time.deltaTime,
-            PlayerStats.maxHealth
-        );
-
-        if (PlayerStats.health >= PlayerStats.maxHealth)
-            PlayerStats.SaveProgress();
     }
 
     private void UpdateHUD()
