@@ -26,6 +26,9 @@ public class OptionsMenu : MonoBehaviour
 
     private InputActionRebindingExtensions.RebindingOperation currentRebind;
 
+    // InGameOptions lo consulta para no cerrar el panel mientras se reasigna una tecla
+    public static bool isRebinding = false;
+
     const string BindSaveKey = "InputBindings";
 
     void OnEnable()
@@ -74,6 +77,7 @@ public class OptionsMenu : MonoBehaviour
         var action = inputActions.FindAction(actionName);
         if (action == null) return;
 
+        isRebinding = true;
         SetButtonsInteractable(false);
         label.text = "Presiona una tecla...";
 
@@ -90,6 +94,7 @@ public class OptionsMenu : MonoBehaviour
 
     void FinishRebind(InputAction action)
     {
+        isRebinding = false;
         action.Enable();
         currentRebind.Dispose();
         currentRebind = null;

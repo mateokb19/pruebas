@@ -9,7 +9,18 @@
       "Bash(git add *)",
       "Bash(git checkout *)",
       "Bash(git rebase *)",
-      "Bash(GIT_EDITOR=true git rebase --continue)"
+      "Bash(GIT_EDITOR=true git rebase --continue)",
+      "Bash(git stash *)",
+      "Bash(git push *)",
+      "Bash(grep -E \"\\\\.\\(prefab|unity\\)$\")",
+      "Bash(file /c/Users/mateo/OneDrive/Escritorio/pruebas/pruebas/Assets/Scenes/*.unity)",
+      "Bash(grep -E '\\\\.\\(anim|cs\\)$')",
+      "Bash(cat .git/rebase-merge/msgnum)",
+      "Bash(cat .git/rebase-merge/end)",
+      "Bash(cat .git/rebase-merge/head-name)",
+      "Bash(cat .git/rebase-merge/onto)",
+      "Bash(ls .git/rebase-apply/)",
+      "Bash(ls .git/rebase-merge/)"
     ]
   }
 }
